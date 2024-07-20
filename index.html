@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <!-- link for style.css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- link the chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- link the -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <img src="image.png" alt="Logo">
+            <h4>DCKAP Palli Inventory</h4>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+       
+
+        <!-- Product Listing -->
+        <div class="productListing">
+            <h3>Dashboard</h3>
+            <div class="highest-quantity-products">
+                <h4>Highest Quantity Products</h4>
+                <div id="top-products"></div>
+            </div>
+            <div class="buttons">
+                <button id="addProductBtn">Add Product</button>
+                <button id="updateInventoryBtn">Update Inventory</button>
+            </div>
+        </div>
+
+
+        <!-- Bar Chart -->
+        <div class="bar-chart">
+            <h2>Inventory Status</h2>
+            <canvas id="inventoryChart"></canvas>
+        </div>
+
+
+        <!-- Recipient Details -->
+        <div class="recipient-details">
+            <h2>Recipient Details</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Recipient</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recipientTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add Product Form -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Product</h2>
+            <form id="addProductForm">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+                <label for="productQuantity">Quantity:</label>
+                <input type="number" id="productQuantity" name="productQuantity" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Update Product Form -->
+    <div id="updateInventoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Inventory</h2>
+            <form id="updateInventoryForm">
+                <label for="productReceived">Product:</label>
+                <input type="text" id="productReceived" name="productReceived" required>
+                <label for="recipientName">Recipient:</label>
+                <input type="text" id="recipientName" name="recipientName" required>
+                <label for="quantityReceived">Quantity:</label>
+                <input type="number" id="quantityReceived" name="quantityReceived" required>
+                <button type="submit">Update Inventory</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
